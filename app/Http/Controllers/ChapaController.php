@@ -137,13 +137,13 @@ class ChapaController extends Controller
         $data = [
             'account_name' => Auth::user()->name,
             // 'account_number' => $phoneNumber,
-            'account_number' => Auth::user()->phone,
+            'account_number' => '0'.Auth::user()->phone,
             'amount' => $amount,
             'currency' => 'ETB',
             'reference' => $reference,
             'bank_code' => $bankCode,
         ];
-        dd($data);
+     
 
         $bearerToken = env('CHAPA_SECRET_KEY');
 
