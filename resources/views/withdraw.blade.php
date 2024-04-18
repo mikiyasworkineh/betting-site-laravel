@@ -65,11 +65,11 @@
                                                             <form action="{{ route('withdraw.initiate') }}" method="POST" id="withdrawForm{{ $option['id'] }}">
                                                                 @csrf
                                                                 <div class="modal-body">
-                                                                    <div class="mb-3">
+                                                                    {{-- <div class="mb-3">
                                                                         <label for="phoneNumber{{ $option['id'] }}" class="form-label">Phone Number</label>
-                                                                        <input type="text" class="form-control" id="phoneNumber{{ $option['id'] }}" name="phoneNumber" pattern="0[0-9]{9}" maxlength="10" required>
+                                                                        <input  type="text" class="form-control" id="phoneNumber{{ $option['id'] }}" name="phoneNumber" pattern="0[0-9]{9}" maxlength="10" required>
                                                                         <div class="invalid-feedback">Please enter a valid phone number starting with 0.</div>
-                                                                    </div>
+                                                                    </div> --}}
                                                                     <div class="mb-3">
                                                                         <label for="withdrawAmount{{ $option['id'] }}" class="form-label">Amount</label>
                                                                         <input type="number" class="form-control" id="withdrawAmount{{ $option['id'] }}" name="amount" min="5" max="5000" step="0.01" required 
@@ -190,7 +190,7 @@
         var targetId = event.target.id;
         if (targetId && targetId.startsWith('withdrawAmount')) {
             var optionId = targetId.replace('withdrawAmount', '');
-            var phoneNumberInputId = 'phoneNumber' + optionId;
+            // phoneNumberInputId
             var withdrawButtonId = 'withdrawBtn' + optionId;
             var availableBalance = {{ $availableBalance ?? 0 }};
             handleAmountInput(targetId, withdrawButtonId, availableBalance);
